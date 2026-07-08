@@ -1,23 +1,10 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import img1 from './assets/characters/1.png';
-import img2 from './assets/characters/2.png';
-import img3 from './assets/characters/3.png';
-import img4 from './assets/characters/4.png';
-import img5 from './assets/characters/5.png';
-import img6 from './assets/characters/6.png';
+import { CHARACTERS } from './characters';
 
-type ImageItem = { src: string; bg: string; panel: string; name: string };
 type Role = 'center' | 'left' | 'right' | 'back';
 
-const IMAGES: ImageItem[] = [
-  { src: img2, bg: '#F4845F', panel: '#F79B7F', name: '67314445 พีรพัฒน์ ทองด้วง' },
-  { src: img3, bg: '#6BBF7A', panel: '#85CC92', name: '67312533 ธนภัทร วิชชากูล' },
-  { src: img4, bg: '#E882B4', panel: '#ED9DC4', name: '67312168 ณัฐวัตร มายูร' },
-  { src: img1, bg: '#6EB5FF', panel: '#8DC4FF', name: '67312670 ธรรมพล ทับทิมมงคล' },
-  { src: img5, bg: '#F2C94C', panel: '#F6D97A', name: '67312106 ณัฐภูมิ กาทองทุ่ง' },
-  { src: img6, bg: '#9B6BCE', panel: '#B48EDB', name: '67316258 สิงห์ชัย นันดอนคา' },
-];
+const IMAGES = CHARACTERS;
 
 const EASE = 'cubic-bezier(0.4,0,0.2,1)';
 
@@ -120,9 +107,6 @@ export default function ToonhubHero() {
   roles[(activeIndex + count - 1) % count] = 'left';
   roles[(activeIndex + 1) % count] = 'right';
 
-  const [studentId, ...nameParts] = active.name.split(' ');
-  const studentName = nameParts.join(' ');
-
   return (
     <div
       className="relative w-full h-screen overflow-hidden"
@@ -212,7 +196,7 @@ export default function ToonhubHero() {
           className="mb-1 uppercase opacity-70"
           style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, letterSpacing: '0.18em' }}
         >
-          {studentId}
+          {active.id}
         </p>
         <p
           className="mb-[18px] leading-tight opacity-95"
@@ -223,7 +207,7 @@ export default function ToonhubHero() {
             textShadow: '0 2px 12px rgba(0,0,0,0.25)',
           }}
         >
-          {studentName}
+          {active.name}
         </p>
         <div className="flex items-center gap-3">
           <button
@@ -247,7 +231,7 @@ export default function ToonhubHero() {
 
       {/* Bottom-right link */}
       <a
-        href="#"
+        href="#about"
         className="absolute bottom-6 right-6 z-[60] flex items-center gap-[10px] uppercase no-underline tracking-[-0.02em] opacity-95 hover:opacity-100 transition-[opacity,transform] duration-200 hover:scale-105"
         style={{
           fontFamily: "'Anton', sans-serif",
