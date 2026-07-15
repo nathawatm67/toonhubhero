@@ -10,6 +10,10 @@ import photo3 from './assets/characters/03.png';
 import photo4 from './assets/characters/04.png';
 import photo5 from './assets/characters/05.jpg';
 import photo6 from './assets/characters/06.jpg';
+import img7 from './assets/characters/7.png';
+import img8 from './assets/characters/8.png';
+import photo7 from './assets/characters/07.jpg';
+import photo8 from './assets/characters/08.jpg';
 
 export type Character = {
   src: string;
@@ -28,4 +32,6 @@ export const CHARACTERS: Character[] = [
   { src: img1, photo: photo1, bg: '#6EB5FF', panel: '#8DC4FF', id: '67312670', name: 'ธรรมพล ทับทิมมงคล', role: 'CTO' },
   { src: img5, photo: photo5, bg: '#F2C94C', panel: '#F6D97A', id: '67312106', name: 'ณัฐภูมิ กาทองทุ่ง', role: 'Dev' },
   { src: img6, photo: photo6, bg: '#9B6BCE', panel: '#B48EDB', id: '67316258', name: 'สิงห์ชัย นันดอนคา', role: 'Dev' },
+  { src: img7, photo: photo7, bg: '#8B5A2B', panel: '#A9754A', id: '67311918', name: 'ณัฏฐกรณ์ โพธิ์หา', role: 'Dev' },
+  { src: img8, photo: photo8, bg: '#2B2B2B', panel: '#4A4A4A', id: '67311604', name: 'ฐปนรรฆ์ ลิ้มรังสฤษดิ์', role: 'Dev' },
 ];

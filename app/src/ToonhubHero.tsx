@@ -109,6 +109,7 @@ export default function ToonhubHero() {
 
   return (
     <div
+      id="hero"
       className="relative w-full h-screen overflow-hidden"
       style={{
         fontFamily: "'Inter', sans-serif",
@@ -116,6 +117,16 @@ export default function ToonhubHero() {
         transition: `background-color 650ms ${EASE}`,
       }}
     >
+      {/* Top-left brand */}
+      <div className="absolute top-6 left-6 z-[60]">
+        <span
+          className="uppercase text-white/90"
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, letterSpacing: '0.18em' }}
+        >
+          Company DO WHO
+        </span>
+      </div>
+
       {/* Center accent panel */}
       <div
         aria-hidden="true"
@@ -149,13 +160,6 @@ export default function ToonhubHero() {
           }}
         >
           DO WHO
-        </span>
-      </div>
-
-      {/* Top-left brand */}
-      <div className="absolute top-6 left-4 z-[60]">
-        <span className="text-xxs font-semibold uppercase text-white/90 tracking-[0.18em]">
-          Company DO WHO
         </span>
       </div>
 
@@ -228,43 +232,6 @@ export default function ToonhubHero() {
           </button>
         </div>
       </div>
-
-      {/* Bottom-right link */}
-      <a
-        href="#about"
-        className="absolute bottom-6 right-6 z-[60] flex items-center gap-[10px] uppercase no-underline tracking-[-0.02em] opacity-95 hover:opacity-100 transition-[opacity,transform] duration-200 hover:scale-105"
-        style={{
-          fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(20px, 4vw, 56px)',
-          fontWeight: 400,
-          color: '#ffffff',
-          lineHeight: 1,
-        }}
-      >
-        <span className="flex">
-          {'START'.split('').map((ch, i) => (
-            <span
-              key={i}
-              style={{
-                display: 'inline-block',
-                animation: 'wave-letter 1.6s ease-in-out infinite',
-                animationDelay: `${i * 0.09}s`,
-              }}
-            >
-              {ch}
-            </span>
-          ))}
-        </span>
-        <ArrowRight
-          className="w-7 h-7"
-          strokeWidth={2.25}
-          style={{
-            display: 'inline-block',
-            animation: 'wave-letter 1.6s ease-in-out infinite',
-            animationDelay: '0.45s',
-          }}
-        />
-      </a>
     </div>
   );
 }

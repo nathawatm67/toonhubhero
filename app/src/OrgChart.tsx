@@ -2,7 +2,11 @@ import { CHARACTERS } from './characters';
 
 const ceo = CHARACTERS.find((c) => c.role === 'CEO')!;
 const deputy = CHARACTERS.find((c) => c.role === 'CTO')!;
-const devs = CHARACTERS.filter((c) => c.role === 'Dev');
+
+const DEV_ORDER = ['67311604', '67312106', '67314445', '67316258', '67311918', '67312533'];
+const devs = CHARACTERS.filter((c) => c.role === 'Dev').sort(
+  (a, b) => DEV_ORDER.indexOf(a.id) - DEV_ORDER.indexOf(b.id),
+);
 
 function OrgCard({ c }: { c: (typeof CHARACTERS)[number] }) {
   return (
@@ -45,12 +49,12 @@ export default function OrgChart() {
     <section id="team" className="bg-[#FAF7F2] px-6 py-24 md:py-32">
       <div className="mx-auto max-w-4xl">
         <p
-          className="mb-3 uppercase text-[#E4645F]"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, letterSpacing: '0.22em', fontWeight: 600 }}
+          className="mb-10 uppercase text-center text-[#E4645F]"
+          style={{ fontFamily: "'Kanit', sans-serif", fontSize: 80, letterSpacing: '0.12em', fontWeight: 600 }}
         >
           Team
         </p>
-        <h2
+        {/* <h2
           className="mb-16 uppercase leading-[0.95] text-[#1A1A1A]"
           style={{
             fontFamily: "'Anton', sans-serif",
@@ -59,7 +63,7 @@ export default function OrgChart() {
           }}
         >
           แผนผังองค์กร
-        </h2>
+        </h2> */}
 
         <div className="flex flex-col items-center">
           <OrgCard c={ceo} />
